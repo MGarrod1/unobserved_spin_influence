@@ -33,11 +33,11 @@ def make_M_vals_plot_plot(mag_mark_data, beta_factor):
 
     fig, ax = plt.subplots(figsize=(6, 6))
     plt.clf()
-    plt.plot(Budget_Vals,M_IIM_Vals,'ro-',label='full graph')
-    plt.plot(Budget_Vals, M_Block_Vals, 'bo-',label='block level')
-    plt.plot(Budget_Vals, M_Unif_Vals, 'go-', label='uniform')
+    plt.plot(Budget_Vals,M_IIM_Vals,'ro-',label='Full graph')
+    plt.plot(Budget_Vals, M_Block_Vals, 'bo-',label='Block level')
+    plt.plot(Budget_Vals, M_Unif_Vals, 'go-', label='Uniform')
     plt.xlabel("H", fontsize=20)
-    plt.ylabel("$\\Delta M_{MC}$", fontsize=20)
+    plt.ylabel("$M_{MC}$", fontsize=20)
     plt.xscale('log')
 
     plt.xticks(fontsize=14)
@@ -85,9 +85,34 @@ def make_markup_plot(mag_mark_data, beta_factor,label=None):
     plt.ylim(0.0, 0.055)
 
     if label is not None:
-        plt.text(230, 0.045, label, fontsize=25)
-    if label == '(e)\n$\\beta=1.2\\beta_c$ (hot)' :
+        plt.text(230, 0.04, label, fontsize=25)
+    if label == '(e)\n$\\beta=1.2\\beta_c$\n(hot)' :
         plt.legend(fontsize=15, loc='upper right')
+
+    #Inset to show the raw magnetisation
+    if label == '(c)\n$\\beta=0.5\\beta_c$\n(cold)' :
+        left, bottom, width, height = [0.55, 0.55, 0.3, 0.3]
+        ax2 = fig.add_axes([left, bottom, width, height])
+
+        first_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 0.5]
+        M_Unif_Vals = list(first_beta['M(uniform)'])
+        ax2.plot(Budget_Vals,M_Unif_Vals,label='$\\beta=0.5 \\beta_c$')
+
+        second_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 1.2]
+        M_Unif_Vals = list(second_beta['M(uniform)'])
+        ax2.plot(Budget_Vals, M_Unif_Vals, label='$\\beta=1.2 \\beta_c$')
+
+        third_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 1.5]
+        M_Unif_Vals = list(third_beta['M(uniform)'])
+        ax2.plot(Budget_Vals, M_Unif_Vals, label='$\\beta=1.5 \\beta_c$')
+
+
+        ax2.set_xscale('log')
+        ax2.set_ylabel("$M_{MC}$")
+        ax2.set_xlabel("H")
+        ax2.legend()
+        ax2.set_ylim(0,1.0)
+        #as_h_vals_data = mag_mark_data.loc[mag_mark_data['beta_factor'] == beta_factor]
 
     plt.savefig("Plots/makrup_beta_f_{}".format(beta_factor).replace('.', '-') +".jpg" , bbox_inches='tight')
 
@@ -130,7 +155,7 @@ for fname in file_names:
     mag_mark_data = mag_mark_data.append(curr_dat)
 
 
-for beta_factor,label in zip([0.5,1.2,1.5],['(c)\n$\\beta=0.5\\beta_c$ (cold)','(d)\n$\\beta=1.2\\beta_c$ (critical)','(e)\n$\\beta=1.2\\beta_c$ (hot)']) :
+for beta_factor,label in zip([0.5,1.2,1.5],['(c)\n$\\beta=0.5\\beta_c$\n(cold)','(d)\n$\\beta=1.2\\beta_c$\n(critical)','(e)\n$\\beta=1.5\\beta_c$\n(hot)']) :
     make_M_vals_plot_plot(mag_mark_data, beta_factor)
     make_markup_plot(mag_mark_data,beta_factor,label=label)
     make_control_behaviour_plot(mag_mark_data, beta_factor)
