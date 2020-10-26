@@ -85,8 +85,8 @@ def make_markup_plot(mag_mark_data, beta_factor,label=None):
     plt.ylim(0.0, 0.055)
 
     if label is not None:
-        plt.text(230, 0.05, label, fontsize=25)
-    if label == '(e)' :
+        plt.text(230, 0.045, label, fontsize=25)
+    if label == '(e)\n$\\beta=1.2\\beta_c$ (hot)' :
         plt.legend(fontsize=15, loc='upper right')
 
     plt.savefig("Plots/makrup_beta_f_{}".format(beta_factor).replace('.', '-') +".jpg" , bbox_inches='tight')
@@ -130,7 +130,7 @@ for fname in file_names:
     mag_mark_data = mag_mark_data.append(curr_dat)
 
 
-for beta_factor,label in zip([0.5,1.2,1.5],['(c)','(d)','(e)']) :
+for beta_factor,label in zip([0.5,1.2,1.5],['(c)\n$\\beta=0.5\\beta_c$ (cold)','(d)\n$\\beta=1.2\\beta_c$ (critical)','(e)\n$\\beta=1.2\\beta_c$ (hot)']) :
     make_M_vals_plot_plot(mag_mark_data, beta_factor)
     make_markup_plot(mag_mark_data,beta_factor,label=label)
     make_control_behaviour_plot(mag_mark_data, beta_factor)
