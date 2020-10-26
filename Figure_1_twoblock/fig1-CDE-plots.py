@@ -86,7 +86,7 @@ def make_markup_plot(mag_mark_data, beta_factor,label=None):
 
     if label is not None:
         plt.text(230, 0.04, label, fontsize=25)
-    if label == '(e)\n$\\beta=1.2\\beta_c$\n(hot)' :
+    if label == '(e)\n$\\beta=1.5\\beta_c$\n(hot)' :
         plt.legend(fontsize=15, loc='upper right')
 
     #Inset to show the raw magnetisation
@@ -96,20 +96,27 @@ def make_markup_plot(mag_mark_data, beta_factor,label=None):
 
         first_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 0.5]
         M_Unif_Vals = list(first_beta['M(uniform)'])
-        ax2.plot(Budget_Vals,M_Unif_Vals,label='$\\beta=0.5 \\beta_c$')
+        ax2.plot(Budget_Vals,M_Unif_Vals,'-',label='$\\beta=0.5 \\beta_c$')
 
         second_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 1.2]
         M_Unif_Vals = list(second_beta['M(uniform)'])
-        ax2.plot(Budget_Vals, M_Unif_Vals, label='$\\beta=1.2 \\beta_c$')
+        ax2.plot(Budget_Vals, M_Unif_Vals,'--', label='$\\beta=1.2 \\beta_c$')
 
         third_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 1.5]
         M_Unif_Vals = list(third_beta['M(uniform)'])
-        ax2.plot(Budget_Vals, M_Unif_Vals, label='$\\beta=1.5 \\beta_c$')
+        ax2.plot(Budget_Vals, M_Unif_Vals,':', label='$\\beta=1.5 \\beta_c$')
 
 
         ax2.set_xscale('log')
-        ax2.set_ylabel("$M_{MC}$")
-        ax2.set_xlabel("H")
+        import matplotlib as mpl
+        #mpl.rcParams['text.usetex'] = True
+        plt.rc('text', usetex=True)
+        mpl.rcParams['text.latex.preamble'] = [r'\usepackage{amsmath}']  # for
+        #ax2.set_ylabel(r"$M_{MC}(\underline{h}_{\mathrm{unif}})$")
+        ax2.set_ylabel(r"$M_{MC}$",fontsize=17)
+        #mpl.rcParams['text.usetex'] = False # Turn off again in case we impact other labels.
+        plt.rc('text', usetex=False)
+        ax2.set_xlabel("H",fontsize=17)
         ax2.legend()
         ax2.set_ylim(0,1.0)
         #as_h_vals_data = mag_mark_data.loc[mag_mark_data['beta_factor'] == beta_factor]
