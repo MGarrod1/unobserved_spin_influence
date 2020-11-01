@@ -48,6 +48,7 @@ def make_M_vals_plot_plot(mag_mark_data, beta_factor):
     plt.savefig("Plots/Mag_as_H_beta_f_{}".format(beta_factor).replace('.', '-'), bbox_inches='tight')
 
 def make_markup_plot(mag_mark_data, beta_factor,label=None):
+
     as_h_vals_data = mag_mark_data.loc[mag_mark_data['beta_factor'] == beta_factor]
 
     M_IIM_Vals = list(as_h_vals_data['M(full)'])
@@ -120,6 +121,46 @@ def make_markup_plot(mag_mark_data, beta_factor,label=None):
         ax2.legend()
         ax2.set_ylim(0,1.0)
         #as_h_vals_data = mag_mark_data.loc[mag_mark_data['beta_factor'] == beta_factor]
+
+
+    if label == '(d)\n$\\beta=1.2\\beta_c$\n(critical)' :
+        left, bottom, width, height = [0.55, 0.55, 0.3, 0.3]
+        ax2 = fig.add_axes([left, bottom, width, height])
+
+        first_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 0.5]
+        M_Unif_Vals = list(first_beta['M(uniform)'])
+        M_Block_Vals = list(first_beta['M(block)'])
+        fractional_increase = [i/j for i,j in zip(M_Block_Vals,M_Unif_Vals)]
+        ax2.plot(Budget_Vals,fractional_increase,'-',label='$\\beta=0.5 \\beta_c$')
+
+        second_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 1.2]
+        M_Unif_Vals = list(second_beta['M(uniform)'])
+        M_Block_Vals = list(second_beta['M(block)'])
+        fractional_increase = [i / j for i, j in zip(M_Block_Vals, M_Unif_Vals)]
+        ax2.plot(Budget_Vals, fractional_increase,'--', label='$\\beta=1.2 \\beta_c$')
+
+        third_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 1.5]
+        M_Unif_Vals = list(third_beta['M(uniform)'])
+        M_Block_Vals = list(third_beta['M(block)'])
+        fractional_increase = [i / j for i, j in zip(M_Block_Vals, M_Unif_Vals)]
+        ax2.plot(Budget_Vals, fractional_increase,':', label='$\\beta=1.5 \\beta_c$')
+
+
+        ax2.set_xscale('log')
+        import matplotlib as mpl
+        #mpl.rcParams['text.usetex'] = True
+        plt.rc('text', usetex=True)
+        mpl.rcParams['text.latex.preamble'] = [r'\usepackage{amsmath}']  # for
+        #ax2.set_ylabel(r"$M_{MC}(\underline{h}_{\mathrm{unif}})$")
+        ax2.set_ylabel(r"$\delta M_{frac}(h_{block})$",fontsize=17)
+        #mpl.rcParams['text.usetex'] = False # Turn off again in case we impact other labels.
+        plt.rc('text', usetex=False)
+        ax2.set_xlabel("H",fontsize=17)
+        ax2.legend()
+        #ax2.set_ylim(0,1.0)
+        #as_h_vals_data = mag_mark_data.loc[mag_mark_data['beta_factor'] == beta_factor]
+
+
 
     plt.savefig("Plots/makrup_beta_f_{}".format(beta_factor).replace('.', '-') +".jpg" , bbox_inches='tight')
 
