@@ -53,7 +53,7 @@ ising_analysis.controls_to_get = {'no control':True,
                                 'Degree control':False}
 
 
-for beta_factor in [0.5,1.2,1.5] :
+for beta_factor in [0.5,1.0,1.5] :
 
     #Block control optimization:
     ising_analysis.gamma = 1.0
@@ -64,7 +64,7 @@ for beta_factor in [0.5,1.2,1.5] :
 
     ising_analysis.max_mf_iim_iterations = 3000
     ising_analysis.mf_iim_tolerance = 1E-8
-    ising_analysis.mf_iim_step_size = 50.0
+    ising_analysis.mf_iim_step_size = 1.0
     ising_analysis.mf_iim_init_control = 'uniform'
     ising_analysis.mf_iim_noisy = True
 
