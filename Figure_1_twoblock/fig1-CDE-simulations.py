@@ -53,7 +53,7 @@ ising_analysis.controls_to_get = {'no control':True,
                                 'Degree control':False}
 
 
-for beta_factor in [0.5,1.0,1.5] :
+for beta_factor in [0.5,1.2,1.5] :
 
     #Block control optimization:
     ising_analysis.gamma = 1.0
