@@ -93,7 +93,7 @@ def make_markup_plot(mag_mark_data, beta_factor,label=None):
 
     #Inset to show the raw magnetisation
     if label == '(c)\n$\\beta=0.5\\beta_c$\n(hot)' :
-        left, bottom, width, height = [0.55, 0.55, 0.3, 0.3]
+        left, bottom, width, height = [0.5, 0.5, 0.35, 0.35]
         ax2 = fig.add_axes([left, bottom, width, height])
 
         first_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 0.5]
@@ -124,7 +124,7 @@ def make_markup_plot(mag_mark_data, beta_factor,label=None):
         #as_h_vals_data = mag_mark_data.loc[mag_mark_data['beta_factor'] == beta_factor]
 
 
-    if label == '(d)\n$\\beta=1.2\\beta_c$\n(critical)' :
+    if label == '(d)\n$\\beta=1.2\\beta_c$\n(critical)_on' :
         left, bottom, width, height = [0.55, 0.55, 0.3, 0.3]
         ax2 = fig.add_axes([left, bottom, width, height])
 
@@ -200,6 +200,10 @@ def make_control_behaviour_plot(mag_mark_data,beta_factor) :
 
 def make_uniform_mag_as_H(mag_mark_data) :
 
+
+    # colour palette from: https://colorbrewer2.org/
+    colours = ['#1b9e77', '#d95f02', '#7570b3']
+
     as_h_vals_data = mag_mark_data.loc[mag_mark_data['beta_factor'] == 0.5]
     Budget_Vals = list(as_h_vals_data['H'])
 
@@ -207,15 +211,15 @@ def make_uniform_mag_as_H(mag_mark_data) :
 
     first_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 0.5]
     M_Unif_Vals = list(first_beta['M(uniform)'])
-    ax.plot(Budget_Vals, M_Unif_Vals, '-', label='$\\beta=0.5 \\beta_c$',lw=2.0)
+    plt.plot(Budget_Vals, M_Unif_Vals, '-', label='$\\beta=0.5 \\beta_c$',lw=2.0,color=colours[0])
 
     second_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 1.2]
     M_Unif_Vals = list(second_beta['M(uniform)'])
-    ax.plot(Budget_Vals, M_Unif_Vals, '--', label='$\\beta=1.2 \\beta_c$',lw=2.0)
+    plt.plot(Budget_Vals, M_Unif_Vals, '--', label='$\\beta=1.2 \\beta_c$',lw=2.0,color=colours[1])
 
     third_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 1.5]
     M_Unif_Vals = list(third_beta['M(uniform)'])
-    ax.plot(Budget_Vals, M_Unif_Vals, ':', label='$\\beta=1.5 \\beta_c$',lw=2.0)
+    plt.plot(Budget_Vals, M_Unif_Vals, ':', label='$\\beta=1.5 \\beta_c$',lw=2.0,color=colours[2])
 
     ax.set_xscale('log')
     plt.rc('text', usetex=True)
@@ -232,6 +236,9 @@ def make_uniform_mag_as_H(mag_mark_data) :
 
 def make_fractional_block_markup_plot(mag_mark_data) :
 
+    # colour palette from: https://colorbrewer2.org/
+    colours = ['#1b9e77', '#d95f02', '#7570b3']
+
     as_h_vals_data = mag_mark_data.loc[mag_mark_data['beta_factor'] == 0.5]
     Budget_Vals = list(as_h_vals_data['H'])
 
@@ -241,19 +248,19 @@ def make_fractional_block_markup_plot(mag_mark_data) :
     M_Unif_Vals = list(first_beta['M(uniform)'])
     M_Block_Vals = list(first_beta['M(block)'])
     fractional_increase = [i / j for i, j in zip(M_Block_Vals, M_Unif_Vals)]
-    ax.plot(Budget_Vals, fractional_increase, '-', label='$\\beta=0.5 \\beta_c$')
+    plt.plot(Budget_Vals, fractional_increase, '-', label='$\\beta=0.5 \\beta_c$',color=colours[0])
 
     second_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 1.2]
     M_Unif_Vals = list(second_beta['M(uniform)'])
     M_Block_Vals = list(second_beta['M(block)'])
     fractional_increase = [i / j for i, j in zip(M_Block_Vals, M_Unif_Vals)]
-    ax.plot(Budget_Vals, fractional_increase, '--', label='$\\beta=1.2 \\beta_c$')
+    plt.plot(Budget_Vals, fractional_increase, '--', label='$\\beta=1.2 \\beta_c$',color=colours[1])
 
     third_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 1.5]
     M_Unif_Vals = list(third_beta['M(uniform)'])
     M_Block_Vals = list(third_beta['M(block)'])
     fractional_increase = [i / j for i, j in zip(M_Block_Vals, M_Unif_Vals)]
-    ax.plot(Budget_Vals, fractional_increase, ':', label='$\\beta=1.5 \\beta_c$')
+    plt.plot(Budget_Vals, fractional_increase, ':', label='$\\beta=1.5 \\beta_c$',color=colours[2])
 
     ax.set_xscale('log')
     plt.rc('text', usetex=True)
@@ -267,6 +274,45 @@ def make_fractional_block_markup_plot(mag_mark_data) :
 
     plt.savefig("Plots/Fractional_block_markups",bbox_inches='tight')
 
+def make_control_on_block_plots_all(mag_mark_data) :
+
+
+    plt.figure(figsize=(8, 8))
+
+    linestyles=['-','--',':']
+    # colour palette from: https://colorbrewer2.org/
+    colours=['#1b9e77','#d95f02','#7570b3']
+
+    for index,beta_factor in enumerate([0.5,1.2,1.5]) :
+        Block_Size = 250
+
+        as_h_vals_data = mag_mark_data.loc[mag_mark_data['beta_factor'] == beta_factor]
+        block_controls = list(as_h_vals_data['block control'])
+        full_controls = list(as_h_vals_data['full control'])
+        Budget_Vals = list(as_h_vals_data['H'])
+
+        #Convert block control on all N nodes to the total control on each block:
+        blocker=[ [Block_Size*np.mean(block_controls[k][0:250]), Block_Size*np.mean(block_controls[k][250:])] for k in range(len(block_controls)) ]
+        b1_frac_block = [i[0]/j for i, j in zip(blocker, Budget_Vals)]
+        b1_frac_full = [np.sum(i[0:Block_Size]) / np.sum(i) for i in full_controls]
+
+
+        plt.plot(Budget_Vals, b1_frac_full, f'bo{linestyles[index]}', label=f'Full, beta={beta_factor}',color=colours[index])
+        plt.plot(Budget_Vals, b1_frac_block, f'rs{linestyles[index]}', label=f'Block, beta={beta_factor}',color=colours[index])
+
+        # 50/50 as a guide for the eye
+
+        plt.xscale('log')
+        plt.ylim(0, 1)
+        plt.xlabel("H", fontsize=20)
+        plt.ylabel("Fraction on block 1", fontsize=20)
+        plt.legend(loc='upper right', fontsize=15)
+
+        plt.xticks(fontsize=14)
+        plt.yticks(fontsize=14)
+    plt.plot(Budget_Vals, 0.5 * np.ones(len(Budget_Vals)), 'k--', label='Uniform')
+
+    plt.savefig("Plots/control_fractions_all_betas", bbox_inches='tight')
 
 if __name__ == "__main__" :
 
@@ -277,10 +323,11 @@ if __name__ == "__main__" :
         mag_mark_data = mag_mark_data.append(curr_dat)
 
 
-    for beta_factor,label in zip([0.5,1.2,1.5],['(c)\n$\\beta=0.5\\beta_c$\n(hot)','(d)\n$\\beta=1.2\\beta_c$\n(near\ncritical)','(e)\n$\\beta=1.5\\beta_c$\n(cold)']) :
+    for beta_factor,label in zip([0.5,1.2,1.5],['(c)\n$\\beta=0.5\\beta_c$\n(hot)','(d)\n$\\beta=1.2\\beta_c$\n(~critical)','(e)\n$\\beta=1.5\\beta_c$\n(cold)']) :
         make_M_vals_plot_plot(mag_mark_data, beta_factor)
         make_markup_plot(mag_mark_data,beta_factor,label=label)
         make_control_behaviour_plot(mag_mark_data, beta_factor)
 
     make_uniform_mag_as_H(mag_mark_data)
     make_fractional_block_markup_plot(mag_mark_data)
+    make_control_on_block_plots_all(mag_mark_data)
