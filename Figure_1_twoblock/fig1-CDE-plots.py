@@ -223,23 +223,64 @@ def make_uniform_mag_as_H(mag_mark_data) :
     ax.set_ylabel(r"$M_{MC}$", fontsize=20)
     plt.rc('text', usetex=False)
     ax.set_xlabel("H", fontsize=20)
-    ax.legend(loc='upper left',fontsize=14)
+    ax.legend(loc='upper left',fontsize=15)
     plt.xticks(fontsize=14)
     plt.yticks(fontsize=14)
     ax.set_ylim(0, 1.0)
 
-    plt.savefig("Plots/Magnetisation_as_H")
+    plt.savefig("Plots/Magnetisation_as_H",bbox_inches='tight')
 
-mag_mark_data = pd.DataFrame()
-file_names = glob.glob('Data/two_block_markup_data*.csv')
-for fname in file_names:
-    curr_dat = pd.read_csv(fname, converters={'block control': from_np_array, 'full control': from_np_array})
-    mag_mark_data = mag_mark_data.append(curr_dat)
+def make_fractional_block_markup_plot(mag_mark_data) :
+
+    as_h_vals_data = mag_mark_data.loc[mag_mark_data['beta_factor'] == 0.5]
+    Budget_Vals = list(as_h_vals_data['H'])
+
+    fig,ax=plt.subplots(figsize=(6,6))
+
+    first_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 0.5]
+    M_Unif_Vals = list(first_beta['M(uniform)'])
+    M_Block_Vals = list(first_beta['M(block)'])
+    fractional_increase = [i / j for i, j in zip(M_Block_Vals, M_Unif_Vals)]
+    ax.plot(Budget_Vals, fractional_increase, '-', label='$\\beta=0.5 \\beta_c$')
+
+    second_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 1.2]
+    M_Unif_Vals = list(second_beta['M(uniform)'])
+    M_Block_Vals = list(second_beta['M(block)'])
+    fractional_increase = [i / j for i, j in zip(M_Block_Vals, M_Unif_Vals)]
+    ax.plot(Budget_Vals, fractional_increase, '--', label='$\\beta=1.2 \\beta_c$')
+
+    third_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 1.5]
+    M_Unif_Vals = list(third_beta['M(uniform)'])
+    M_Block_Vals = list(third_beta['M(block)'])
+    fractional_increase = [i / j for i, j in zip(M_Block_Vals, M_Unif_Vals)]
+    ax.plot(Budget_Vals, fractional_increase, ':', label='$\\beta=1.5 \\beta_c$')
+
+    ax.set_xscale('log')
+    plt.rc('text', usetex=True)
+    mpl.rcParams['text.latex.preamble'] = [r'\usepackage{amsmath}']  # for
+    ax.set_ylabel(r"$\delta M_{F}^{Block}$", fontsize=20)
+    plt.rc('text', usetex=False)
+    ax.set_xlabel("H", fontsize=20)
+    ax.legend(fontsize=15)
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
+
+    plt.savefig("Plots/Fractional_block_markups",bbox_inches='tight')
 
 
-for beta_factor,label in zip([0.5,1.2,1.5],['(c)\n$\\beta=0.5\\beta_c$\n(hot)','(d)\n$\\beta=1.2\\beta_c$\n(near\ncritical)','(e)\n$\\beta=1.5\\beta_c$\n(cold)']) :
-    make_M_vals_plot_plot(mag_mark_data, beta_factor)
-    make_markup_plot(mag_mark_data,beta_factor,label=label)
-    make_control_behaviour_plot(mag_mark_data, beta_factor)
+if __name__ == "__main__" :
 
-make_uniform_mag_as_H(mag_mark_data)
+    mag_mark_data = pd.DataFrame()
+    file_names = glob.glob('Data/two_block_markup_data*.csv')
+    for fname in file_names:
+        curr_dat = pd.read_csv(fname, converters={'block control': from_np_array, 'full control': from_np_array})
+        mag_mark_data = mag_mark_data.append(curr_dat)
+
+
+    for beta_factor,label in zip([0.5,1.2,1.5],['(c)\n$\\beta=0.5\\beta_c$\n(hot)','(d)\n$\\beta=1.2\\beta_c$\n(near\ncritical)','(e)\n$\\beta=1.5\\beta_c$\n(cold)']) :
+        make_M_vals_plot_plot(mag_mark_data, beta_factor)
+        make_markup_plot(mag_mark_data,beta_factor,label=label)
+        make_control_behaviour_plot(mag_mark_data, beta_factor)
+
+    make_uniform_mag_as_H(mag_mark_data)
+    make_fractional_block_markup_plot(mag_mark_data)
