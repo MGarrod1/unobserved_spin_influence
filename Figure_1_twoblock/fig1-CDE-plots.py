@@ -87,11 +87,11 @@ def make_markup_plot(mag_mark_data, beta_factor,label=None):
 
     if label is not None:
         plt.text(230, 0.04, label, fontsize=25)
-    if label == '(e)\n$\\beta=1.5\\beta_c$\n(hot)' :
+    if label == '(e)\n$\\beta=1.5\\beta_c$\n(cold)' :
         plt.legend(fontsize=15, loc='upper right')
 
     #Inset to show the raw magnetisation
-    if label == '(c)\n$\\beta=0.5\\beta_c$\n(cold)' :
+    if label == '(c)\n$\\beta=0.5\\beta_c$\n(hot)' :
         left, bottom, width, height = [0.55, 0.55, 0.3, 0.3]
         ax2 = fig.add_axes([left, bottom, width, height])
 
@@ -152,7 +152,7 @@ def make_markup_plot(mag_mark_data, beta_factor,label=None):
         plt.rc('text', usetex=True)
         mpl.rcParams['text.latex.preamble'] = [r'\usepackage{amsmath}']  # for
         #ax2.set_ylabel(r"$M_{MC}(\underline{h}_{\mathrm{unif}})$")
-        ax2.set_ylabel(r"$\delta M_{frac}(h_{block})$",fontsize=17)
+        ax2.set_ylabel(r"$\delta M_{F}^{Block}$",fontsize=17)
         #mpl.rcParams['text.usetex'] = False # Turn off again in case we impact other labels.
         plt.rc('text', usetex=False)
         ax2.set_xlabel("H",fontsize=17)
@@ -203,7 +203,7 @@ for fname in file_names:
     mag_mark_data = mag_mark_data.append(curr_dat)
 
 
-for beta_factor,label in zip([0.5,1.2,1.5],['(c)\n$\\beta=0.5\\beta_c$\n(cold)','(d)\n$\\beta=1.2\\beta_c$\n(critical)','(e)\n$\\beta=1.5\\beta_c$\n(hot)']) :
+for beta_factor,label in zip([0.5,1.2,1.5],['(c)\n$\\beta=0.5\\beta_c$\n(hot)','(d)\n$\\beta=1.2\\beta_c$\n(near\ncritical)','(e)\n$\\beta=1.5\\beta_c$\n(cold)']) :
     make_M_vals_plot_plot(mag_mark_data, beta_factor)
     make_markup_plot(mag_mark_data,beta_factor,label=label)
     make_control_behaviour_plot(mag_mark_data, beta_factor)
