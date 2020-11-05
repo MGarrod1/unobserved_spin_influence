@@ -92,7 +92,7 @@ def make_markup_plot(mag_mark_data, beta_factor,label=None):
         plt.legend(fontsize=15, loc='upper right')
 
     #Inset to show the raw magnetisation
-    if label == '(c)\n$\\beta=0.5\\beta_c$\n(hot)' :
+    if label == '(c)\n$\\beta=0.5\\beta_c$\n(hot)_off' :
         left, bottom, width, height = [0.5, 0.5, 0.35, 0.35]
         ax2 = fig.add_axes([left, bottom, width, height])
 
@@ -208,7 +208,10 @@ def make_uniform_mag_as_H(mag_mark_data) :
     as_h_vals_data = mag_mark_data.loc[mag_mark_data['beta_factor'] == 0.5]
     Budget_Vals = list(as_h_vals_data['H'])
 
-    fig,ax=plt.subplots(figsize=(6, 6))
+    # fig,ax=plt.subplots(figsize=(6, 6))
+    my_dpi=96
+    fig,ax=plt.subplots(figsize = (582 / my_dpi, 547 / my_dpi), dpi = my_dpi )
+
 
     first_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 0.5]
     M_Unif_Vals = list(first_beta['M(uniform)'])
@@ -222,13 +225,10 @@ def make_uniform_mag_as_H(mag_mark_data) :
     M_Unif_Vals = list(third_beta['M(uniform)'])
     plt.plot(Budget_Vals, M_Unif_Vals, '>:', label='$\\beta=1.5 \\beta_c$',lw=2.0,color=colours[2])
 
-    plt.text(230, 0.8,'(f)', fontsize=25)
+    plt.text(230, 0.9,'(f)', fontsize=25)
 
     ax.set_xscale('log')
-    # plt.rc('text', usetex=True)
-    # mpl.rcParams['text.latex.preamble'] = [r'\usepackage{amsmath}']  # for
     ax.set_ylabel(r"$M_{MC}$", fontsize=20)
-    # plt.rc('text', usetex=False)
     ax.set_xlabel("H", fontsize=20)
     plt.xticks(fontsize=14)
     plt.yticks(fontsize=14)
@@ -244,8 +244,9 @@ def make_fractional_block_markup_plot(mag_mark_data) :
     as_h_vals_data = mag_mark_data.loc[mag_mark_data['beta_factor'] == 0.5]
     Budget_Vals = list(as_h_vals_data['H'])
 
-    fig,ax=plt.subplots(figsize=(6,6))
-
+    #fig,ax=plt.subplots(figsize=(6,6))
+    my_dpi = 96
+    fig,ax=plt.subplots(figsize=(582 / my_dpi, 547 / my_dpi), dpi=my_dpi)
     first_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 0.5]
     M_Unif_Vals = list(first_beta['M(uniform)'])
     M_Block_Vals = list(first_beta['M(block)'])
@@ -267,10 +268,7 @@ def make_fractional_block_markup_plot(mag_mark_data) :
     plt.text(1000, 1.24, '(g)', fontsize=25)
 
     ax.set_xscale('log')
-    #plt.rc('text', usetex=True)
-    #mpl.rcParams['text.latex.preamble'] = [r'\usepackage{amsmath}']  # for
     ax.set_ylabel(r"$\delta M_{F}^{Block}$", fontsize=20)
-    #plt.rc('text', usetex=False)
     ax.set_xlabel("H", fontsize=20)
     ax.legend(fontsize=15,loc='upper right')
     plt.xticks(fontsize=14)
