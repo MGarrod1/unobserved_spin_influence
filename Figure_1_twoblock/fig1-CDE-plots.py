@@ -201,6 +201,7 @@ def make_control_behaviour_plot(mag_mark_data,beta_factor) :
 def make_uniform_mag_as_H(mag_mark_data) :
 
 
+
     # colour palette from: https://colorbrewer2.org/
     colours = ['#1b9e77', '#d95f02', '#7570b3']
 
@@ -211,28 +212,29 @@ def make_uniform_mag_as_H(mag_mark_data) :
 
     first_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 0.5]
     M_Unif_Vals = list(first_beta['M(uniform)'])
-    plt.plot(Budget_Vals, M_Unif_Vals, '-', label='$\\beta=0.5 \\beta_c$',lw=2.0,color=colours[0])
+    plt.plot(Budget_Vals, M_Unif_Vals, 'o-', label='$\\beta=0.5 \\beta_c$',lw=2.0,color=colours[0])
 
     second_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 1.2]
     M_Unif_Vals = list(second_beta['M(uniform)'])
-    plt.plot(Budget_Vals, M_Unif_Vals, '--', label='$\\beta=1.2 \\beta_c$',lw=2.0,color=colours[1])
+    plt.plot(Budget_Vals, M_Unif_Vals, 's--', label='$\\beta=1.2 \\beta_c$',lw=2.0,color=colours[1])
 
     third_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 1.5]
     M_Unif_Vals = list(third_beta['M(uniform)'])
-    plt.plot(Budget_Vals, M_Unif_Vals, ':', label='$\\beta=1.5 \\beta_c$',lw=2.0,color=colours[2])
+    plt.plot(Budget_Vals, M_Unif_Vals, '>:', label='$\\beta=1.5 \\beta_c$',lw=2.0,color=colours[2])
+
+    plt.text(230, 0.8,'(f)', fontsize=25)
 
     ax.set_xscale('log')
-    plt.rc('text', usetex=True)
-    mpl.rcParams['text.latex.preamble'] = [r'\usepackage{amsmath}']  # for
+    # plt.rc('text', usetex=True)
+    # mpl.rcParams['text.latex.preamble'] = [r'\usepackage{amsmath}']  # for
     ax.set_ylabel(r"$M_{MC}$", fontsize=20)
-    plt.rc('text', usetex=False)
+    # plt.rc('text', usetex=False)
     ax.set_xlabel("H", fontsize=20)
-    ax.legend(loc='upper left',fontsize=15)
     plt.xticks(fontsize=14)
     plt.yticks(fontsize=14)
     ax.set_ylim(0, 1.0)
 
-    plt.savefig("Plots/Magnetisation_as_H",bbox_inches='tight')
+    plt.savefig("Plots/Magnetisation_as_H.jpg",bbox_inches='tight')
 
 def make_fractional_block_markup_plot(mag_mark_data) :
 
@@ -248,31 +250,33 @@ def make_fractional_block_markup_plot(mag_mark_data) :
     M_Unif_Vals = list(first_beta['M(uniform)'])
     M_Block_Vals = list(first_beta['M(block)'])
     fractional_increase = [i / j for i, j in zip(M_Block_Vals, M_Unif_Vals)]
-    plt.plot(Budget_Vals, fractional_increase, '-', label='$\\beta=0.5 \\beta_c$',color=colours[0])
+    plt.plot(Budget_Vals, fractional_increase, 'o-', label='$\\beta=0.5 \\beta_c$',color=colours[0])
 
     second_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 1.2]
     M_Unif_Vals = list(second_beta['M(uniform)'])
     M_Block_Vals = list(second_beta['M(block)'])
     fractional_increase = [i / j for i, j in zip(M_Block_Vals, M_Unif_Vals)]
-    plt.plot(Budget_Vals, fractional_increase, '--', label='$\\beta=1.2 \\beta_c$',color=colours[1])
+    plt.plot(Budget_Vals, fractional_increase, 's--', label='$\\beta=1.2 \\beta_c$',color=colours[1])
 
     third_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 1.5]
     M_Unif_Vals = list(third_beta['M(uniform)'])
     M_Block_Vals = list(third_beta['M(block)'])
     fractional_increase = [i / j for i, j in zip(M_Block_Vals, M_Unif_Vals)]
-    plt.plot(Budget_Vals, fractional_increase, ':', label='$\\beta=1.5 \\beta_c$',color=colours[2])
+    plt.plot(Budget_Vals, fractional_increase, '>:', label='$\\beta=1.5 \\beta_c$',color=colours[2])
+
+    plt.text(1000, 1.24, '(g)', fontsize=25)
 
     ax.set_xscale('log')
-    plt.rc('text', usetex=True)
-    mpl.rcParams['text.latex.preamble'] = [r'\usepackage{amsmath}']  # for
+    #plt.rc('text', usetex=True)
+    #mpl.rcParams['text.latex.preamble'] = [r'\usepackage{amsmath}']  # for
     ax.set_ylabel(r"$\delta M_{F}^{Block}$", fontsize=20)
-    plt.rc('text', usetex=False)
+    #plt.rc('text', usetex=False)
     ax.set_xlabel("H", fontsize=20)
-    ax.legend(fontsize=15)
+    ax.legend(fontsize=15,loc='upper right')
     plt.xticks(fontsize=14)
     plt.yticks(fontsize=14)
 
-    plt.savefig("Plots/Fractional_block_markups",bbox_inches='tight')
+    plt.savefig("Plots/Fractional_block_markups.jpg",bbox_inches='tight')
 
 def make_control_on_block_plots_all(mag_mark_data) :
 
