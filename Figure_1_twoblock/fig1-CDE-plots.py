@@ -227,8 +227,11 @@ def make_uniform_mag_as_H(mag_mark_data) :
 
     plt.text(230, 0.9,'(f)', fontsize=25)
 
+
     ax.set_xscale('log')
-    ax.set_ylabel(r"$M_{MC}$", fontsize=20)
+
+    ax.set_ylabel(r"$M_{MC}(h_{\mathrm{unif}})$", fontsize=20)
+
     ax.set_xlabel("H", fontsize=20)
     plt.xticks(fontsize=14)
     plt.yticks(fontsize=14)
@@ -265,12 +268,12 @@ def make_fractional_block_markup_plot(mag_mark_data) :
     fractional_increase = [i / j for i, j in zip(M_Block_Vals, M_Unif_Vals)]
     plt.plot(Budget_Vals, fractional_increase, '>:', label='$\\beta=1.5 \\beta_c$',color=colours[2])
 
-    plt.text(1000, 1.24, '(g)', fontsize=25)
+    plt.text(400, 1.24, '(g)', fontsize=25)
 
     ax.set_xscale('log')
     ax.set_ylabel(r"$\delta M_{F}^{Block}$", fontsize=20)
     ax.set_xlabel("H", fontsize=20)
-    ax.legend(fontsize=15,loc='upper right')
+    ax.legend(fontsize=20,loc='upper right')
     plt.xticks(fontsize=14)
     plt.yticks(fontsize=14)
 
