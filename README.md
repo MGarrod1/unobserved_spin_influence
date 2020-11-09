@@ -10,7 +10,7 @@ This repository makes use of code within the following repos:
 
 - [spatial spin monte carlo](https://github.com/MGarrod1/spatial_spin_monte_carlo) - used for the Monte Carlo simulations.
 
-The code was validated using Python 3.7.4 on an Anaconda distribution (conda version : 4.8.3). A full list of the packages unstalled can be found in the *environment.yml* file. This can be used to construct an identical anaconda environment to that used to perform the simulations. See the [https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html](documentation) for more details.
+The code was validated using Python 3.7.4 on an Anaconda distribution (conda version : 4.8.3). A full list of the packages installed can be found in the *environment.yml* file. This can be used to construct an identical anaconda environment to that used to perform the simulations. See the [https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html](documentation) for more details.
 
 ## Data used
 
