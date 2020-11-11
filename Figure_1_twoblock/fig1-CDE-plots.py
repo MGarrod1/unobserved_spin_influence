@@ -200,8 +200,6 @@ def make_control_behaviour_plot(mag_mark_data,beta_factor) :
 
 def make_uniform_mag_as_H(mag_mark_data) :
 
-
-
     # colour palette from: https://colorbrewer2.org/
     colours = ['#1b9e77', '#d95f02', '#7570b3']
 
@@ -229,9 +227,7 @@ def make_uniform_mag_as_H(mag_mark_data) :
 
 
     ax.set_xscale('log')
-
     ax.set_ylabel(r"$M_{MC}(h_{\mathrm{unif}})$", fontsize=20)
-
     ax.set_xlabel("H", fontsize=20)
     plt.xticks(fontsize=14)
     plt.yticks(fontsize=14)
