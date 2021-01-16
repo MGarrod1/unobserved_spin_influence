@@ -285,7 +285,7 @@ def make_fractional_block_markup_plot(mag_mark_data) :
                  label='$\\beta=1.5 \\beta_c$',
                  color=colours[2])
 
-    plt.text(400, 1.24, '(g)', fontsize=25)
+    plt.text(400, 1.41, '(g)', fontsize=25)
 
     ax.set_xscale('log')
     ax.set_ylabel(r"$\delta M_{F}^{Block}$", fontsize=20)
