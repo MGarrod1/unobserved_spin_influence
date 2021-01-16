@@ -249,20 +249,41 @@ def make_fractional_block_markup_plot(mag_mark_data) :
     first_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 0.5]
     M_Unif_Vals = list(first_beta['M(uniform)'])
     M_Block_Vals = list(first_beta['M(block)'])
+    M_Unif_SEs = list(first_beta['M(uniform)_SE'])
+    M_Block_SEs = list(first_beta['M(block)_SE'])
     fractional_increase = [i / j for i, j in zip(M_Block_Vals, M_Unif_Vals)]
-    plt.plot(Budget_Vals, fractional_increase, 'o-', label='$\\beta=0.5 \\beta_c$',color=colours[0])
+    fractional_increase_SEs = [((SE_block / M_unif) ** 2 + ((M_block / (M_unif ** 2)) * SE_unif) ** 2) ** 0.5 for
+                               M_unif, M_block, SE_unif, SE_block in
+                               zip(M_Unif_Vals, M_Block_Vals, M_Unif_SEs, M_Block_SEs)]
+    # plt.plot(Budget_Vals, fractional_increase, 'o-', label='$\\beta=0.5 \\beta_c$',color=colours[0])
+    plt.errorbar(Budget_Vals, fractional_increase, yerr=fractional_increase_SEs, fmt='o-', label='$\\beta=0.5 \\beta_c$',color=colours[0])
 
     second_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 1.2]
     M_Unif_Vals = list(second_beta['M(uniform)'])
     M_Block_Vals = list(second_beta['M(block)'])
+    M_Unif_SEs = list(second_beta['M(uniform)_SE'])
+    M_Block_SEs = list(second_beta['M(block)_SE'])
     fractional_increase = [i / j for i, j in zip(M_Block_Vals, M_Unif_Vals)]
-    plt.plot(Budget_Vals, fractional_increase, 's--', label='$\\beta=1.2 \\beta_c$',color=colours[1])
+    fractional_increase_SEs = [((SE_block / M_unif) ** 2 + ((M_block / (M_unif ** 2)) * SE_unif) ** 2) ** 0.5 for
+                               M_unif, M_block, SE_unif, SE_block in
+                               zip(M_Unif_Vals, M_Block_Vals, M_Unif_SEs, M_Block_SEs)]
+    # plt.plot(Budget_Vals, fractional_increase, 's--', label='$\\beta=1.2 \\beta_c$',color=colours[1])
+    plt.errorbar(Budget_Vals, fractional_increase, yerr=fractional_increase_SEs, fmt='s--', label='$\\beta=1.2 \\beta_c$',
+                 color=colours[1])
 
     third_beta = mag_mark_data.loc[mag_mark_data['beta_factor'] == 1.5]
     M_Unif_Vals = list(third_beta['M(uniform)'])
     M_Block_Vals = list(third_beta['M(block)'])
+    M_Unif_SEs = list(third_beta['M(uniform)_SE'])
+    M_Block_SEs = list(third_beta['M(block)_SE'])
     fractional_increase = [i / j for i, j in zip(M_Block_Vals, M_Unif_Vals)]
-    plt.plot(Budget_Vals, fractional_increase, '>:', label='$\\beta=1.5 \\beta_c$',color=colours[2])
+    fractional_increase_SEs = [((SE_block / M_unif) ** 2 + ((M_block / (M_unif ** 2)) * SE_unif) ** 2) ** 0.5 for
+                               M_unif, M_block, SE_unif, SE_block in
+                               zip(M_Unif_Vals, M_Block_Vals, M_Unif_SEs, M_Block_SEs)]
+    # plt.plot(Budget_Vals, fractional_increase, '>:', label='$\\beta=1.5 \\beta_c$',color=colours[2])
+    plt.errorbar(Budget_Vals, fractional_increase, yerr=fractional_increase_SEs, fmt='>:',
+                 label='$\\beta=1.5 \\beta_c$',
+                 color=colours[2])
 
     plt.text(400, 1.24, '(g)', fontsize=25)
 
