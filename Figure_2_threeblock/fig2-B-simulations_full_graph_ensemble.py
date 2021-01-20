@@ -86,22 +86,18 @@ if __name__ == "__main__" :
     random.seed(seed)
     np.random.seed(seed)
 
-    f_path_block = "Data/block_level_phase_data.csv"
-    f_path_full_graph = "Data/full_MF_phase_data.csv"
-    f_path_mc = "Data/MC_phase_data.csv"
-
     #Parameters:
     min_beta_factor = 0.5
     max_beta_factor = 5.0
     B=5.0
     block_size=400
     coupling_matrix=np.asarray([[10.0, 2.5,0.0], [2.5, 7.5 ,2.5],[0.0,2.5,10.0 ]])
+    full_graph_samples = 5 # realisations of the full graph
 
-    three_block_phase_simulator = three_block_phase_simulator(coupling_matrix,block_size,B)
-
-    # three_block_phase_simulator.make_full_level_phase_diag_data(f_path_full_graph)
-    # three_block_phase_simulator.make_block_level_phase_diag_data(f_path_block)
-    three_block_phase_simulator.make_mc_phase_diag_data(f_path_mc)
+    for samp in range(full_graph_samples) :
+        f_path_full_graph = f"Data/ensemble/full_MF_phase_data_{samp}.csv"
+        three_block_phase_simulator = three_block_phase_simulator(coupling_matrix,block_size,B)
+        three_block_phase_simulator.make_full_level_phase_diag_data(f_path_full_graph)
 
 
 
