@@ -18,6 +18,7 @@ M Garrod, Dec 2019.
 import three_block_sbm_class as ThreeBlock
 import numpy as np
 import random
+import tqdm
 
 def block_aligned_state(block_size,a1,a2,a3) :
     vector = np.concatenate(( a1*np.ones(block_size), a2*np.ones(block_size), a3*np.ones(block_size)))
@@ -54,7 +55,7 @@ class three_block_phase_simulator :
 
     def make_full_level_phase_diag_data(self,f_path) :
         num_full_initials = 50
-        num_full_betas = 100
+        num_full_betas = 25
         a_vals = [np.random.uniform(-1.0, 1.0, 3) for k in range(num_full_initials)]
         initials = [block_aligned_state(self.block_size, a[0], a[1], a[2]) for a in a_vals]
         beta_vals_full = np.linspace(self.max_beta_factor, self.min_beta_factor, num_full_betas)
@@ -92,12 +93,13 @@ if __name__ == "__main__" :
     B=5.0
     block_size=400
     coupling_matrix=np.asarray([[10.0, 2.5,0.0], [2.5, 7.5 ,2.5],[0.0,2.5,10.0 ]])
-    full_graph_samples = 5 # realisations of the full graph
+    full_graph_samples = 15 # realisations of the full graph
 
-    for samp in range(full_graph_samples) :
+    for samp in tqdm.tqdm( range(full_graph_samples) ) :
+        print(f"SBM sample: {samp}")
         f_path_full_graph = f"Data/ensemble/full_MF_phase_data_{samp}.csv"
-        three_block_phase_simulator = three_block_phase_simulator(coupling_matrix,block_size,B)
-        three_block_phase_simulator.make_full_level_phase_diag_data(f_path_full_graph)
+        three_block_phase_sim = three_block_phase_simulator(coupling_matrix,block_size,B)
+        three_block_phase_sim.make_full_level_phase_diag_data(f_path_full_graph)
 
 
 
