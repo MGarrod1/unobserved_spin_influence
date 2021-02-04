@@ -31,17 +31,15 @@ K_11_vals = np.arange(2.5,10.5,1.0)
 
 for K_11 in K_11_vals :
     N_Block=250
-    coupling_matrix = np.asarray([[K_11,2.5],[2.5,2.5]])
+    coupling_matrix = np.asarray([[K_11,2.5],[2.5,5.5]])
     block_sizes=[N_Block,N_Block]
     block_background_field=np.asarray([0.0,0.0])
     block_system = NBlock.block_mf_ising_system(coupling_matrix,block_sizes,block_background_field)
     sbm_graph=block_system.make_sbm() #Sample a particular SBM from the ensemble
     ising_analysis = NBlock.ising_analysis(sbm_graph, coupling_matrix, block_sizes, block_background_field)
 
-    MC_Sims=2 # change back to 15
+    MC_Sims=15
     spin_alignment=1.0 #Start at fully aligned metastable state.
-    # H_vals =  [  N_Block*(10**k) for k in np.arange(0.0, 1.8, 0.1)]
-    # H_vals =  [  N_Block*(10**k) for k in np.linspace(0.0,2.0,20)]
 
     H_vals = [2000]
 
