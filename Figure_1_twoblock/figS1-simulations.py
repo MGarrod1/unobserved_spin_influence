@@ -1,15 +1,7 @@
 """
 
-Derive full graph and block level
-mean-field Ising controls for two
-block SBM for a range of field
-budgets and inverse temperatures.
-
-Also investigate the impact of changing
-the coupling matrix.
-
-We then evaluate the controls for each
-of the different values.
+Code used for Figure S1 in the paper. Investigates the impact of changing
+the coupling matrix on the magnetisation markup.
 
 M Garrod, Jan 2021.
 
