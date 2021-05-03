@@ -5,7 +5,7 @@ Full IIM controls as a function of the
 Field Budget for different values of
 beta.
 
-Used for figures 1c, 1d & 1e.
+Used for figures 1c, 1d, 1e, 1g & 1F.
 
 M Garrod, Dec 2019.
 
