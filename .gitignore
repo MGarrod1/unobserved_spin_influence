@@ -136,3 +136,5 @@ Figure_2_threeblock/Data/MC_phase_data.csv
 
 # Pyre type checker
 .pyre/
+
+*.iml
