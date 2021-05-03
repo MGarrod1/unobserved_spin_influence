@@ -1,6 +1,6 @@
 # unobserved_spin_influence
 
-This repository contains code used to perform simulations and generate plots for the paper: "Influencing dynamics on social networks without knowledge of network microstructure"
+This repository contains code used to perform simulations and generate plots for the paper: ["Influencing dynamics on social networks without knowledge of network microstructure"](https://arxiv.org/abs/2011.05774)
 
 # Requirements
 
