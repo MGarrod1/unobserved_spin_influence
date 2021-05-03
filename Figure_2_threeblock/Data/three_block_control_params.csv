@@ -1,5 +1,0 @@
-Parameter,Value
-$\gamma_{\mathrm{block}}$,1.0
-$\tau_{\mathrm{block}}$,1e-05
-$\epsilon_{\mathrm{block}}$,1.0
-$a_{\mathrm{block}}$,1e-10
