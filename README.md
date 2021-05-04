@@ -30,8 +30,10 @@ The table below summarises the python scripts or Jupyter notebooks used to gener
 | 2 b       | N/A                                                 | fig2-B-simulations.py                 | block_level_phase_data.csv, full_MF_phase_data.csv, MC_phase_data.csv                     | fig2-B-plots.ipynb         |  5H in total                        |
 | 2 c-j | N/A                                                 | fig2-C-J-simulations.py               | three_block_sus_data.csv                                                                  | fig2-C-J-plots.ipynb                  | < 1 min                             |
 | 3 a       | soc-pokec-profiles.txt soc-pokec-relationships.txt  | make_bratislava_graph_and_blocks.ipynb  | bratislava_profiles.csv Bratislava_graph.graphmlBratislava_coupling.graphmlblock_info.csv | make_bratislava_graph_and_blocks.ipynb  | Minutes                             |
-| 3 b       | N/A                                                 | fig3-B-simulations.ipynb                | Pokec_control_eval_data_new.csv                                                           | fig3-B-plots.ipynb                      | 8 H                                 |
-|hello	|	|	|	|	|	|	|
+| 3 b       | N/A                                                 | N/A                | N/A                                                           | fig3-B-plots.ipynb                      | 8 H                                 |
+| 3 c	|	|	|	|	|	|	|
+| 4 a & b	|	|	|	|	|	|	|
+| 4 c & d	|	|	|	|	|	|	|
 | S1        | N/A                                                 | N/A                                     | N/A                                                                                       | figS1-plots.ipynb                       | Seconds                             |
 | S2        | N/A                                                 | figS2-simulations.ipynb                 | Pokec_phase_diagram_data.csv                                                              | figS2-plots.ipynb                       | 2H 40 mins running this on 07/10/20 |
 | S3        | N/A                                                 | figS3-simulations.ipynb                 | snapshot_as_sampfrac_data_grad_1-0.csv                                                    | figS3-plots.ipynb                       |                                     |
