@@ -29,8 +29,8 @@ The table below summarises the python scripts or Jupyter notebooks used to gener
 | 2 a       | N/A                                                 | fig2-A.py                             | N/A                                                                                       | fig2-A.py                             | Seconds                             |
 | 2 b       | N/A                                                 | fig2-B-simulations.py                 | block_level_phase_data.csv, full_MF_phase_data.csv, MC_phase_data.csv                     | fig2-B-plots.ipynb         |  5H in total                        |
 | 2 c-j | N/A                                                 | fig2-C-J-simulations.py               | three_block_sus_data.csv                                                                  | fig2-C-J-plots.ipynb                  | < 1 min                             |
-| 3 a       | soc-pokec-profiles.txt soc-pokec-relationships.txt  | make_bratislava_graph_and_blocks.ipynb  | bratislava_profiles.csv Bratislava_graph.graphmlBratislava_coupling.graphmlblock_info.csv | make_bratislava_graph_and_blocks.ipynb  | Minutes                             |
-| 3 b       | N/A                                                 | N/A                | N/A                                                           | fig3-B-plots.ipynb                      | 8 H                                 |
+| 3 a       | soc-pokec-profiles.txt soc-pokec-relationships.txt  | make_bratislava_graph_and_blocks.ipynb  | bratislava_profiles.csv, Bratislava_graph.graphml, Bratislava_coupling.graphml, block_info.csv | make_bratislava_graph_and_blocks.ipynb  | Minutes                             |
+| 3 b       | bratislava_profiles.csv, Bratislava_graph.graphml, Bratislava_coupling.graphml, block_info.csv  | N/A                | N/A                                                           | fig3-B-plots.ipynb                      | Seconds                                 |
 | 3 c	|	|	|	|	|	|	|
 | 4 a & b	|	|	|	|	|	|	|
 | 4 c & d	|	|	|	|	|	|	|
