@@ -133,6 +133,7 @@ venv.bak/
 *.jpg
 dmypy.json
 Figure_2_threeblock/Data/MC_phase_data.csv
+Figures_3-4_Pokec/Data/reduced_pokec_profiles.csv
 
 # Pyre type checker
 .pyre/
