@@ -31,7 +31,7 @@ The table below summarises the python scripts or Jupyter notebooks used to gener
 | 2 c-j | N/A                                                 | fig2-C-J-simulations.py               | three_block_sus_data.csv                                                                  | fig2-C-J-plots.ipynb                  | < 1 min                             |
 | 3 a       | soc-pokec-profiles.txt soc-pokec-relationships.txt  | make_bratislava_graph_and_blocks.ipynb  | bratislava_profiles.csv, Bratislava_graph.graphml, Bratislava_coupling.graphml, block_info.csv | make_bratislava_graph_and_blocks.ipynb  | Minutes                             |
 | 3 b       | bratislava_profiles.csv, Bratislava_graph.graphml, Bratislava_coupling.graphml, block_info.csv  | N/A                | N/A                                                           | fig3-B-plots.ipynb                      | Seconds                                 |
-| 3 c	| bratislava_profiles.csv, Bratislava_graph.graphml, Bratislava_coupling.graphml, block_info.csv | Pokec_markup_simulations.ipynb |	|	|	|	|
+| 3 c	| bratislava_profiles.csv, Bratislava_graph.graphml, Bratislava_coupling.graphml, block_info.csv | Pokec_markup_simulations.ipynb | fig3-C-plots.ipynb | Pokec_control_eval_as_beta.csv |	|	|
 | 4 a & b	|	|	|	|	|	|	|
 | 4 c & d	| bratislava_profiles.csv, Bratislava_graph.graphml, Bratislava_coupling.graphml, block_info.csv | Pokec_markup_simulations.ipynb |	|	|	|	|
 | S1        | N/A                                                 | N/A                                     | N/A                                                                                       | figS1-plots.ipynb                       | Seconds                             |
