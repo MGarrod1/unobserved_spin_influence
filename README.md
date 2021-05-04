@@ -32,7 +32,7 @@ The table below summarises the python scripts or Jupyter notebooks used to gener
 | 3 a       | soc-pokec-profiles.txt soc-pokec-relationships.txt  | make_bratislava_graph_and_blocks.ipynb  | bratislava_profiles.csv, Bratislava_graph.graphml, Bratislava_coupling.graphml, block_info.csv | make_bratislava_graph_and_blocks.ipynb  | Minutes                             |
 | 3 b       | bratislava_profiles.csv, Bratislava_graph.graphml, Bratislava_coupling.graphml, block_info.csv  | N/A                | N/A                                                           | fig3-B-plots.ipynb                      | Seconds                                 |
 | 3 c	| bratislava_profiles.csv, Bratislava_graph.graphml, Bratislava_coupling.graphml, block_info.csv | Pokec_markup_simulations.ipynb | fig3-C-plots.ipynb | Pokec_control_eval_as_beta.csv |	|	|
-| 4 a & b	|	|	|	|	|	|	|
+| 4 a & b	|  | fig4-simulations.ipynb	||fig4-a-b-plots.ipynb	| block_magnetisations_1-0.csv	|	|
 | 4 c & d	| bratislava_profiles.csv, Bratislava_graph.graphml, Bratislava_coupling.graphml, block_info.csv | Pokec_markup_simulations.ipynb |	|	|	|	|
 | S1        | N/A                                                 | N/A                                     | N/A                                                                                       | figS1-plots.ipynb                       | Seconds                             |
 | S2        | N/A                                                 | figS2-simulations.ipynb                 | Pokec_phase_diagram_data.csv                                                              | figS2-plots.ipynb                       | 2H 40 mins running this on 07/10/20 |
