@@ -36,9 +36,14 @@ The table below summarises the python scripts or Jupyter notebooks used to gener
 | 4 c & d	| bratislava_profiles.csv, Bratislava_graph.graphml, Bratislava_coupling.graphml, block_info.csv | Pokec_markup_simulations.ipynb |	|	|	|	|
 | S1        | N/A                                                 | Figure_1_twoblock/figS1-simulations.py  | N/A                                                                                       | Figure_1_twoblock/figS1-plots.ipynb                       | Seconds                             |
 | S2        | N/A                                                 | Figure_2_threeblock/figS2-simulations.py |  Data/ensemble/full_MF_phase_data_{samp}.csv  | Figure_2_threeblock/figS2-plots.ipynb                       |  |
-| S3        | N/A                                                 | figS3-simulations.ipynb                 | snapshot_as_sampfrac_data_grad_1-0.csv                                                     | figS3-plots.ipynb                       |  
+| S3        | N/A                                                 |  N/A               | | Figures_3-4_Pokec/figS3-plots.ipynb                       |  |
+| S4        | N/A - Pokec related   | | Pokec_phase_diagram_data.csv | | |
 
 
 2H 40 mins running this on 07/10/20|
 
-Pokec_phase_diagram_data.csv
+
+
+figS3-simulations.ipynb 
+
+snapshot_as_sampfrac_data_grad_1-0.csv 
