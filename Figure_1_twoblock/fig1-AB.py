@@ -53,6 +53,6 @@ plt.ylabel("Magnetization")
 plt.savefig("Plots/mag_as_iterations_block_control")
 
 
-two_block_class.plot_full_control_on_network(sbm_graph,full_control,file_path='Plots/full_control_on_graph.jpg',label='(a)')
+two_block_class.plot_full_control_on_network(sbm_graph,full_control,file_path='Plots/full_control_on_graph.pdf',label='(a)')
 two_block_class.plot_control_vs_degrees(sbm_graph,full_control,block_control,file_path='Plots/control_vs_degrees')
-two_block_class.plot_control_histogram(full_control,block_control,file_path='Plots/control_hist.jpg',label='(b)')
+two_block_class.plot_control_histogram(full_control,block_control,file_path='Plots/control_hist.pdf',label='(b)')

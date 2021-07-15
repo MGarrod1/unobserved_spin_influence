@@ -163,7 +163,7 @@ def make_markup_plot(mag_mark_data, beta_factor,label=None):
 
 
 
-    plt.savefig("Plots/makrup_beta_f_{}".format(beta_factor).replace('.', '-') +".jpg" , bbox_inches='tight')
+    plt.savefig("Plots/makrup_beta_f_{}".format(beta_factor).replace('.', '-') +".pdf" , bbox_inches='tight')
 
 
 def make_control_behaviour_plot(mag_mark_data,beta_factor) :
@@ -233,7 +233,7 @@ def make_uniform_mag_as_H(mag_mark_data) :
     plt.yticks(fontsize=14)
     ax.set_ylim(0, 1.0)
 
-    plt.savefig("Plots/Magnetisation_as_H.jpg",bbox_inches='tight')
+    plt.savefig("Plots/Magnetisation_as_H.pdf",bbox_inches='tight')
 
 def make_fractional_block_markup_plot(mag_mark_data) :
 
@@ -294,7 +294,7 @@ def make_fractional_block_markup_plot(mag_mark_data) :
     plt.xticks(fontsize=14)
     plt.yticks(fontsize=14)
 
-    plt.savefig("Plots/Fractional_block_markups.jpg",bbox_inches='tight')
+    plt.savefig("Plots/Fractional_block_markups.pdf",bbox_inches='tight')
 
 def make_control_on_block_plots_all(mag_mark_data) :
 
