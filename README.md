@@ -33,7 +33,7 @@ The table below summarises the python scripts or Jupyter notebooks used to gener
 | 3 b       | bratislava_profiles.csv, Bratislava_graph.graphml, Bratislava_coupling.graphml, block_info.csv  | N/A                | N/A                                                           | fig3-B-plots.ipynb                      | Seconds                                 |
 | 3 c	| bratislava_profiles.csv, Bratislava_graph.graphml, Bratislava_coupling.graphml, block_info.csv | Pokec_markup_simulations.ipynb | Pokec_control_eval_as_beta.csv | fig3-C-plots.ipynb |	|	|
 | 4 a & b	| bratislava_profiles.csv, Bratislava_graph.graphml, Bratislava_coupling.graphml, block_info.csv | fig4-a-b-simulations.ipynb	| block_magnetisations_1-0.csv |fig4-a-b-plots.ipynb	| 40 mins	|	|
-| 4 c & d	| bratislava_profiles.csv, Bratislava_graph.graphml, Bratislava_coupling.graphml, block_info.csv | Pokec_markup_simulations.ipynb |	|	|	|	|
+| 4 c & d	| bratislava_profiles.csv, Bratislava_graph.graphml, Bratislava_coupling.graphml, block_info.csv | Pokec_markup_simulations.ipynb |	| fig4-c-d-plots.ipynb	|	|	|
 | S1        | N/A                                                 | Figure_1_twoblock/figS1-simulations.py  | N/A                                                                                       | Figure_1_twoblock/figS1-plots.ipynb                       | Seconds                             |
 | S2        | N/A                                                 | Figure_2_threeblock/figS2-simulations.py |  Data/ensemble/full_MF_phase_data_{samp}.csv  | Figure_2_threeblock/figS2-plots.ipynb                       |  |
 | S3        | N/A                                                 |  N/A               | | Figures_3-4_Pokec/figS3-plots.ipynb                       |  |
