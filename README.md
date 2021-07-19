@@ -40,12 +40,3 @@ The table below summarises the python scripts or Jupyter notebooks used to gener
 | S4        | N/A - Pokec related   | Figures_3-4_Pokec/figS4-simulations.ipynb | Pokec_phase_diagram_data.csv |  Figures_3-4_Pokec/figS4-plots.ipynb | |
 | S5        |   | Figures_3-4_Pokec/figS5-simulations.ipynb | | Figures_3-4_Pokec/figS5-plots.ipynb| |
 | S6        |   | Figures_3-4_Pokec/figS6-simulations.ipynb | | Figures_3-4_Pokec/figS6-plots.ipynb| |
-
-
-2H 40 mins running this on 07/10/20|
-
-
-
-figS3-simulations.ipynb 
-
-snapshot_as_sampfrac_data_grad_1-0.csv 
