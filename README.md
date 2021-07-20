@@ -37,6 +37,6 @@ The table below summarises the python scripts or Jupyter notebooks used to gener
 | S1        | N/A                                                 | Figure_1_twoblock/figS1-simulations.py  | N/A                                                                                       | Figure_1_twoblock/figS1-plots.ipynb                       | Seconds                             |
 | S2        | N/A                                                 | Figure_2_threeblock/figS2-simulations.py |  Data/ensemble/full_MF_phase_data_{samp}.csv  | Figure_2_threeblock/figS2-plots.ipynb                       |  |
 | S3        | N/A                                                 |  N/A               | | Figures_3-4_Pokec/figS3-plots.ipynb                       |  |
-| S4        | N/A - Pokec related   | Figures_3-4_Pokec/figS4-simulations.ipynb | Pokec_phase_diagram_data.csv |  Figures_3-4_Pokec/figS4-plots.ipynb | |
-| S5        |   | Figures_3-4_Pokec/figS5-simulations.ipynb | | Figures_3-4_Pokec/figS5-plots.ipynb| |
-| S6        |   | Figures_3-4_Pokec/figS6-simulations.ipynb | | Figures_3-4_Pokec/figS6-plots.ipynb| |
+| S4        | As in 4 a & b   | Figures_3-4_Pokec/figS4-simulations.ipynb | Pokec_phase_diagram_data.csv |  Figures_3-4_Pokec/figS4-plots.ipynb | |
+| S5        | As in 4 a & b   | Figures_3-4_Pokec/figS5-simulations.ipynb | snapshot_mag_eval_data_{}.csv | Figures_3-4_Pokec/figS5-plots.ipynb| |
+| S6        | As in 4 a & b   | Figures_3-4_Pokec/figS6-simulations.ipynb | Data/mc_chain_examples/random_init_chain_data_beta_{beta_f}\_g\_{gradient}.csv | Figures_3-4_Pokec/figS6-plots.ipynb| |
