@@ -58,7 +58,7 @@ def plot_three_block(sbm_graph,three_block,fname="three_block_plot",color_on='ba
         plt.text(-1.0, 0.18, label, fontsize=25)
 
     cbar.ax.set_ylabel('Ambient Field', rotation=90,fontsize=16,labelpad=15.0)
-    plt.savefig(fname + ".jpg",dpi=100)
+    plt.savefig(fname + ".pdf",dpi=100)
 
 
 if __name__ == "__main__" :

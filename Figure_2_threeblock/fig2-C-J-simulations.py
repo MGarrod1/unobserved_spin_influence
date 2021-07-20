@@ -1,6 +1,6 @@
 """
 
-Carries out simulations for figures 2c,2d &2e.
+Carries out simulations for figures 2c-2j.
 
 This figure explores the behaviour of the optimal
 block level control as a function of the field budget (H)
