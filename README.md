@@ -14,7 +14,7 @@ The code was validated using Python 3.7.4 on an Anaconda distribution (conda ver
 
 ## Data used
 
-The simulations associated with Figures 3a,3b, S1, S2 & S3 rely on data from the social network Pokec. This can be downloaded from: [https://snap.stanford.edu/data/soc-Pokec.html](https://snap.stanford.edu/data/soc-Pokec.html). When running the simulations this data was placed inside the directory: unobserved\_spin\_influence/Figure\_3\_Pokec/Data/raw\_data.
+The simulations associated with Figures 3, 4 and S3-S6 rely on data from the social network Pokec. This can be downloaded from: [https://snap.stanford.edu/data/soc-Pokec.html](https://snap.stanford.edu/data/soc-Pokec.html). When running the simulations this data was placed inside the directory: unobserved\_spin\_influence/Figure\_3\_Pokec/Data/raw\_data.
 
 The .csv files obtained from the simulations are included in the Data/ directory associated with each figure. Figure\_2\_threeblock/Data/MC\_phase\_data.csv is omitted due to its size.
 
