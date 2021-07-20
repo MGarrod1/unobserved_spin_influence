@@ -62,8 +62,8 @@ class three_block_phase_simulator :
 
         num_MC_initials = 25
         T = 10000
-        T_Burn = 20000
-        MC_Runs = 2
+        T_Burn = 120000
+        MC_Runs = 10
         num_bins = 50
 
         # Discrete equivalent of the sampling strategy used above:
@@ -96,8 +96,8 @@ if __name__ == "__main__" :
 
     three_block_phase_simulator = three_block_phase_simulator(coupling_matrix,block_size,B)
 
-    three_block_phase_simulator.make_full_level_phase_diag_data(f_path_full_graph)
-    three_block_phase_simulator.make_block_level_phase_diag_data(f_path_block)
+    # three_block_phase_simulator.make_full_level_phase_diag_data(f_path_full_graph)
+    # three_block_phase_simulator.make_block_level_phase_diag_data(f_path_block)
     three_block_phase_simulator.make_mc_phase_diag_data(f_path_mc)
 
 
